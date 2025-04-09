@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rotating Border Box</title>
+  <title>Animated Gradient Border</title>
   <style>
     html, body {
       margin: 0;
@@ -15,39 +15,36 @@
       justify-content: center;
     }
 
-    .rotating-box {
+    .gradient-border-box {
       position: relative;
       width: 300px;
       height: 180px;
       border-radius: 16px;
-      background: transparent; /* 🔥 fully transparent */
+      background: transparent;
       z-index: 0;
     }
 
-    .rotating-box::before {
+    .gradient-border-box::before {
       content: '';
       position: absolute;
       top: -4px;
       left: -4px;
       right: -4px;
       bottom: -4px;
-      background: linear-gradient(0deg, #ff6a00, #ee0979);
+      background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
+      background-size: 600% 600%;
       border-radius: 20px;
       z-index: -1;
-      animation: spin 3s linear infinite;
+      animation: animateBorder 6s linear infinite;
     }
 
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
+    @keyframes animateBorder {
+      0% {
+        background-position: 0% 50%;
       }
-      to {
-        transform: rotate(360deg);
+      100% {
+        background-position: 100% 50%;
       }
     }
   </style>
 </head>
-<body>
-  <div class="rotating-box"></div>
-</body>
-</html>
