@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rotating Gradient Border</title>
+  <title>Expanded Rotating Gradient Border</title>
   <style>
     html, body {
       margin: 0;
@@ -37,8 +37,9 @@
       background: conic-gradient(from 90deg, #ff6a00, #ee0979, #ff6a00);
       z-index: -1;
       animation: rotateGradient 4s linear infinite;
-      padding: 6px; /* Border thickness */
+      padding: 0; /* No padding to expand the gradient */
       box-sizing: border-box;
+      background-size: 200% 200%; /* Expanding the gradient coverage */
     }
 
     /* The keyframe animation for rotating the gradient */
