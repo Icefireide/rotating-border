@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glowing Animated Border</title>
+  <title>Rotating Gradient Border</title>
   <style>
     html, body {
       margin: 0;
@@ -25,6 +25,7 @@
       overflow: hidden;
     }
 
+    /* The animated gradient border */
     .glowing-rectangle::before {
       content: '';
       position: absolute;
@@ -32,18 +33,21 @@
       left: 0;
       right: 0;
       bottom: 0;
+      border-radius: 16px;
       background: conic-gradient(#ff6a00, #ee0979, #ff6a00);
-      border-radius: 16px; /* Keep the border-radius for the glow */
       z-index: -1;
       animation: rotateGradient 4s linear infinite;
+      padding: 6px; /* Adjusts the thickness of the border */
+      box-sizing: border-box;
     }
 
+    /* The keyframe animation for rotating the gradient */
     @keyframes rotateGradient {
       0% {
-        background-position: 0% 50%;
+        transform: rotate(0deg);
       }
       100% {
-        background-position: 100% 50%;
+        transform: rotate(360deg);
       }
     }
   </style>
