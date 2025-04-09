@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expanded Rotating Gradient Border</title>
+  <title>Rotating Gradient Circle Around Rectangle</title>
   <style>
     html, body {
       margin: 0;
@@ -17,38 +17,36 @@
 
     .glowing-rectangle {
       position: relative;
-      width: 1920px; /* Set size for 1920x1080 */
+      width: 1920px; /* Rectangle size */
       height: 1080px;
-      border-radius: 16px;
+      border-radius: 16px; /* Rounded corners */
       background: transparent;
-      z-index: 0;
       overflow: hidden;
+      z-index: 1; /* Keeps the rectangle on top */
     }
 
-    /* The animated gradient border */
+    /* The large animated gradient circle */
     .glowing-rectangle::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 16px;
-      background: conic-gradient(from 90deg, #ff6a00, #ee0979, #ff6a00);
-      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: 7680px; /* Circle diameter: 4 times the size of the rectangle */
+      height: 7680px;
+      background: conic-gradient(#ff6a00, #ee0979, #ff6a00); /* Gradient */
+      border-radius: 50%; /* Make it a circle */
+      z-index: -1; /* Behind the rectangle */
       animation: rotateGradient 4s linear infinite;
-      box-sizing: border-box;
-      background-size: 100% 100%; /* Ensure the gradient covers the entire border */
-      padding: 6px; /* Border thickness */
+      transform: translate(-50%, -50%); /* Center the circle */
     }
 
     /* The keyframe animation for rotating the gradient */
     @keyframes rotateGradient {
       0% {
-        transform: rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
       }
     }
   </style>
