@@ -22,28 +22,28 @@
       border-radius: 16px; /* Rounded corners */
       background: transparent;
       z-index: 0;
+      overflow: hidden;
     }
 
     .glowing-rectangle::before {
       content: '';
       position: absolute;
-      top: -6px;
-      left: -6px;
-      right: -6px;
-      bottom: -6px;
-      border-radius: 16px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: conic-gradient(#ff6a00, #ee0979, #ff6a00);
-      animation: spinGradient 4s linear infinite;
+      border-radius: 16px; /* Keep the border-radius for the glow */
       z-index: -1;
-      filter: blur(8px); /* ✨ glow effect */
+      animation: rotateGradient 4s linear infinite;
     }
 
-    @keyframes spinGradient {
+    @keyframes rotateGradient {
       0% {
-        transform: rotate(0deg);
+        background-position: 0% 50%;
       }
       100% {
-        transform: rotate(360deg);
+        background-position: 100% 50%;
       }
     }
   </style>
