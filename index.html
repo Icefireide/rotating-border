@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animated Gradient Border</title>
+  <title>Glowing Animated Border</title>
   <style>
     html, body {
       margin: 0;
@@ -15,40 +15,40 @@
       justify-content: center;
     }
 
-    .gradient-border-box {
+    .glowing-rectangle {
       position: relative;
       width: 300px;
       height: 180px;
-      border-radius: 16px;
+      border-radius: 16px; /* Rounded corners */
       background: transparent;
       z-index: 0;
     }
 
-    .gradient-border-box::before {
+    .glowing-rectangle::before {
       content: '';
       position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
-      background-size: 600% 600%;
-      border-radius: 20px;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 16px;
+      background: conic-gradient(#ff6a00, #ee0979, #ff6a00);
+      animation: spinGradient 4s linear infinite;
       z-index: -1;
-      animation: animateBorder 6s linear infinite;
+      filter: blur(8px); /* ✨ glow effect */
     }
 
-    @keyframes animateBorder {
+    @keyframes spinGradient {
       0% {
-        background-position: 0% 50%;
+        transform: rotate(0deg);
       }
       100% {
-        background-position: 100% 50%;
+        transform: rotate(360deg);
       }
     }
   </style>
 </head>
 <body>
-  <div class="gradient-border-box"></div>
+  <div class="glowing-rectangle"></div>
 </body>
 </html>
